@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nicollas\\Desktop\\Up\\Projetos\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj": {}
+    "C:\\Users\\Nicollas\\Desktop\\Up\\Projetos\\bom dia\\Academia\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nicollas\\Desktop\\Up\\Projetos\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj": {
+    "C:\\Users\\Nicollas\\Desktop\\Up\\Projetos\\bom dia\\Academia\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nicollas\\Desktop\\Up\\Projetos\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Nicollas\\Desktop\\Up\\Projetos\\bom dia\\Academia\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\Nicollas\\Desktop\\Up\\Projetos\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj",
+        "projectPath": "C:\\Users\\Nicollas\\Desktop\\Up\\Projetos\\bom dia\\Academia\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Nicollas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nicollas\\Desktop\\Up\\Projetos\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\obj\\",
+        "outputPath": "C:\\Users\\Nicollas\\Desktop\\Up\\Projetos\\bom dia\\Academia\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nicollas\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -45,6 +45,8 @@
           "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.20, )"
             },
@@ -64,25 +66,10 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.20, 8.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.20, 8.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.20, 8.0.20]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.20, 8.0.20]"
-            }
-          ],
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
