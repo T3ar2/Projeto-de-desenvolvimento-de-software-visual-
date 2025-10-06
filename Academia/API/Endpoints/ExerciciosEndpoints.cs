@@ -40,7 +40,7 @@ public static class ExerciciosEndpoints
             return Results.Created($"/api/exercicios/{novoExercicio.ExercicioId}", novoExercicio);
         });
 
-        // TODO:
+        // TODO: Nicollas
         // app.MapPut("/api/exercicios/{id}", ...)
         // app.MapDelete("/api/exercicios/{id}", ...)
     }
