@@ -6,8 +6,8 @@ public class Exercicio
 {
     // Id, Nome, Descricao, Equipamento
 
-    public int exercicioId { set; get; } = 0;
-    public string exercicioNome { set; get; } = "";
-    public string exercicioDescricao { set; get; } = "";
-    public string equipamento { set; get; } = "";
+    public int ExercicioId { set; get; } = 0;
+    public string ExercicioNome { set; get; } = "";
+    public string ExercicioDescricao { set; get; } = "";
+    public string Equipamento { set; get; } = "";
 }

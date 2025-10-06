@@ -9,13 +9,13 @@ public class PlanoDeTreino
 {
 
     [Key]
-    public int planoId { set; get; } = 0;
+    public int PlanoId { set; get; } = 0;
     public DateTime DataAtribuicao { get; set; } = DateTime.Now;
 
 
 
-    public int alunoId { set; get; } = 0;
-    public int treinoId { set; get; } = 0;
+    public int AlunoId { set; get; } = 0;
+    public int TreinoId { set; get; } = 0;
 
 
     public Aluno Aluno { get; set; } = default!; 

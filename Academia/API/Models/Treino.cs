@@ -5,8 +5,8 @@ namespace API.Models;
 public class Treino
 {
 
-    public int treinoId { set; get; } = 0;
-    public string nomeTreino { set; get; } = "";
-    public string descricaoTreino { set; get; } = "";
+    public int TreinoId { set; get; } = 0;
+    public string NomeTreino { set; get; } = "";
+    public string DescricaoTreino { set; get; } = "";
     public string FocoMuscular { set; get; } = "";
 }
