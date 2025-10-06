@@ -22,15 +22,15 @@ public class AppDataContent : DbContext
 
     public DbSet<Aluno> Alunos { get; set; }
     public DbSet<Treino> Treinos { get; set; }
-    public DbSet<Exercicio> Exercicios { get; set; }
     public DbSet<PlanoDeTreino> PlanosDeTreino { get; set; }
+    public DbSet<Exercicio> Exercicios { get; set; } 
 
      protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<PlanoDeTreino>()
             .HasOne(pt => pt.Aluno)
             .WithMany()
-            .HasForeignKey(pt => pt.alunoId);
+            .HasForeignKey(pt => pt.AlunoId);
     }
 
 }
