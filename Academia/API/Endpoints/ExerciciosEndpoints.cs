@@ -21,27 +21,62 @@ public static class ExerciciosEndpoints
             return Results.NotFound("A lista de exercícios está vazia.");
         });
 
-        // Cadastro: POST /api/exercicios/cadastrar
-        app.MapPost("/api/exercicios/cadastrar", async (Exercicio novoExercicio, AppDataContent context) =>
+        // Buscar: GET /api/exercicios/buscar/{nome}
+        app.MapGet("/api/exercicios/buscar/{nome}", (AppDataContent ctx, String nome)=>
         {
-            if (string.IsNullOrWhiteSpace(novoExercicio.ExercicioNome))
+            Exercicio? resultado = ctx.Exercicios.FirstOrDefault(x => x.exercicioNome == nome);
+            if (resultado is null) { return Results.NotFound("Exercicio não encontrado"); }
+            return Results.Ok(resultado);
+        });
+
+
+
+
+
+        // Cadastro: POST /api/exercicios/cadastrar
+        app.MapPost("/api/exercicios/cadastrar", async (Exercicio novoExercicio, AppDataContent ctx) =>
+        {
+            if (string.IsNullOrWhiteSpace(novoExercicio.exercicioNome))
             {
                 return Results.BadRequest("Nome do exercpício é obrigatório.");
             }
             ;
 
-            bool jaExiste = await context.Exercicios.AnyAsync(e => e.ExercicioNome == novoExercicio.ExercicioNome);
+            bool jaExiste = await ctx.Exercicios.AnyAsync(e => e.exercicioNome == novoExercicio.exercicioNome);
             if (jaExiste)
             {
                 return Results.Conflict("Já existe um exercício com este nome.");
             }
-            context.Exercicios.Add(novoExercicio);
-            await context.SaveChangesAsync();
-            return Results.Created($"/api/exercicios/{novoExercicio.ExercicioId}", novoExercicio);
+            ctx.Exercicios.Add(novoExercicio);
+            await ctx.SaveChangesAsync();
+            return Results.Created($"/api/exercicios/{novoExercicio.exercicioId}", novoExercicio);
         });
 
-        // TODO: Nicollas
-        // app.MapPut("/api/exercicios/{id}", ...)
-        // app.MapDelete("/api/exercicios/{id}", ...)
+
+        // DELETE: /api/exercicios/deletar/{id}
+        app.MapDelete("/api/exercicios/deletar/{id}", (AppDataContent ctx, int id) =>
+        {
+            Exercicio? resultado = ctx.Exercicios.Find(id);
+            if (resultado is null) { return Results.NotFound("Não é possível deletar algo em que não está no banco de dados."); }
+            ctx.Exercicios.Remove(resultado);
+            ctx.SaveChanges();
+            return Results.Ok(resultado + " deletado com sucesso.");
+        });
+
+        // UPDATE: /api/exercicios/atualizar/{id}
+        app.MapPatch("/api/exercicios/atualizar/{id}", (AppDataContent ctx, int id, Exercicio exercicioAlterado) =>
+        {
+            Exercicio? resultado = ctx.Exercicios.Find(id);
+            if (resultado is null) { return Results.NotFound("Exercicio não encontrado"); }
+            resultado.exercicioNome = exercicioAlterado.exercicioNome;
+            resultado.exercicioDescricao = exercicioAlterado.exercicioDescricao;
+            ctx.Exercicios.Update(resultado);
+            ctx.SaveChanges();
+            return Results.Ok(resultado + " alterado com sucesso. ");
+            
+        });
+
+
+        
     }
 }
