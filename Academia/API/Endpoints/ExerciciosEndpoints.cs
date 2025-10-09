@@ -24,7 +24,7 @@ public static class ExerciciosEndpoints
         // Buscar: GET /api/exercicios/buscar/{nome}
         app.MapGet("/api/exercicios/buscar/{nome}", (AppDataContent ctx, String nome)=>
         {
-            Exercicio? resultado = ctx.Exercicios.FirstOrDefault(x => x.exercicioNome == nome);
+            Exercicio? resultado = ctx.Exercicios.FirstOrDefault(x => x.ExercicioNome == nome);
             if (resultado is null) { return Results.NotFound("Exercicio não encontrado"); }
             return Results.Ok(resultado);
         });
@@ -36,20 +36,20 @@ public static class ExerciciosEndpoints
         // Cadastro: POST /api/exercicios/cadastrar
         app.MapPost("/api/exercicios/cadastrar", async (Exercicio novoExercicio, AppDataContent ctx) =>
         {
-            if (string.IsNullOrWhiteSpace(novoExercicio.exercicioNome))
+            if (string.IsNullOrWhiteSpace(novoExercicio.ExercicioNome))
             {
-                return Results.BadRequest("Nome do exercpício é obrigatório.");
+                return Results.BadRequest("Nome do exercício é obrigatório.");
             }
             ;
 
-            bool jaExiste = await ctx.Exercicios.AnyAsync(e => e.exercicioNome == novoExercicio.exercicioNome);
+            bool jaExiste = await ctx.Exercicios.AnyAsync(e => e.ExercicioNome == novoExercicio.ExercicioNome);
             if (jaExiste)
             {
                 return Results.Conflict("Já existe um exercício com este nome.");
             }
             ctx.Exercicios.Add(novoExercicio);
             await ctx.SaveChangesAsync();
-            return Results.Created($"/api/exercicios/{novoExercicio.exercicioId}", novoExercicio);
+            return Results.Created($"/api/exercicios/{novoExercicio.ExercicioId}", novoExercicio);
         });
 
 
@@ -68,8 +68,8 @@ public static class ExerciciosEndpoints
         {
             Exercicio? resultado = ctx.Exercicios.Find(id);
             if (resultado is null) { return Results.NotFound("Exercicio não encontrado"); }
-            resultado.exercicioNome = exercicioAlterado.exercicioNome;
-            resultado.exercicioDescricao = exercicioAlterado.exercicioDescricao;
+            resultado.ExercicioNome = exercicioAlterado.ExercicioNome;
+            resultado.ExercicioDescricao = exercicioAlterado.ExercicioDescricao;
             ctx.Exercicios.Update(resultado);
             ctx.SaveChanges();
             return Results.Ok(resultado + " alterado com sucesso. ");
