@@ -11,6 +11,11 @@ public class Aluno
     public string EmailAluno { set; get; }
     public int DataNascimento { set; get; }
     public string StatusMatricula { set; get; }
-
-    
+    public Aluno(String nomeAluno, string emailAluno, int dataNascimento, string statusMatricula)
+    {
+        NomeAluno = nomeAluno;
+        EmailAluno = emailAluno;
+        DataNascimento = dataNascimento;
+        StatusMatricula = statusMatricula;
+    }
 }

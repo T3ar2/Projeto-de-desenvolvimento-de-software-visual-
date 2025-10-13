@@ -32,7 +32,7 @@ if (app.Environment.IsDevelopment())
 
 app.MapGet("/", () => "API Academia está rodando!");
 
-app.MapExerciciosRoutes(); 
+app.MapExerciciosRoutes();
 
 
 app.Run();  
