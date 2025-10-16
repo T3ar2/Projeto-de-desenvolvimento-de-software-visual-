@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\actdigital\\Documents\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj": {}
+    "C:\\Users\\erick\\OneDrive\\Documentos\\GitHub\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\actdigital\\Documents\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj": {
+    "C:\\Users\\erick\\OneDrive\\Documentos\\GitHub\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\actdigital\\Documents\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\erick\\OneDrive\\Documentos\\GitHub\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\actdigital\\Documents\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\actdigital\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\actdigital\\Documents\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\obj\\",
+        "projectPath": "C:\\Users\\erick\\OneDrive\\Documentos\\GitHub\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\erick\\OneDrive\\Documentos\\GitHub\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\actdigital\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\erick\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -77,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.414/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.413/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

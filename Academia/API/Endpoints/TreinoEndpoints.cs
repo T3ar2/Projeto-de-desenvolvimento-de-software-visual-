@@ -50,10 +50,10 @@ public static class TreinoEndpoints
             return Results.Ok(resultado + " atualizado com sucesso.");
         });
 
-        app.MapPost("api/treino/cadastrar/{nome}", async(AppDataContent ctx,Treino treino) =>
+        app.MapPost("api/treino/cadastrar/{nome}", async (AppDataContent ctx, Treino treino) =>
         {
             Treino? resultado = ctx.Treinos.FirstOrDefault(x => x.NomeTreino == treino.NomeTreino);
-            
+
             if (resultado is null)
             {
                 ctx.Treinos.Add(treino);
@@ -62,6 +62,34 @@ public static class TreinoEndpoints
                 return Results.Ok(resultado + " criado com sucesso.");
             }
             return Results.Conflict("Exxiste o treino com o mesmo nome.");
+        });
+        
+        app.MapPost("/api/treinos/{treinoId}/associar-exercicio/{exercicioId}", (int treinoId, int exercicioId, AppDataContent ctx) =>
+        {
+            var treino = ctx.Treinos.Include(t => t.Exercicios).FirstOrDefault(t => t.TreinoId == treinoId);
+            if (treino is null)
+            {
+                return Results.NotFound("Plano de treino não encontrado.");
+            }
+
+            var exercicio = ctx.Exercicios.Find(exercicioId);
+            if (exercicio is null)
+            {
+                return Results.NotFound("Exercício não encontrado.");
+            }
+
+            foreach (var exercicioExistente in treino.Exercicios)
+            {
+                if (exercicioExistente.ExercicioId == exercicioId)
+                {
+                    return Results.Conflict("Este exercício já está associado a este plano de treino.");
+                }
+            }
+
+            treino.Exercicios.Add(exercicio);
+            ctx.SaveChanges();
+
+            return Results.Ok(treino);
         });
     }
 }
