@@ -1,0 +1,34 @@
+### Listar Alunos cadastrados
+GET http://localhost:5064/api/alunos/listar
+
+### Buscar Aluno cadastrados
+GET http://localhost:5064/api/alunos/buscar/{nome}
+
+
+### Cadastrar Alunos
+POST http://localhost:5064/api/alunos/cadastrar
+Content-Type: application/json
+
+{
+  "AlunoId" : 1,
+  "NomeAluno" : "Pedro Da Silva",
+  "EmailAluno" : "pedrodasilva@gmail.com",
+  "DataNascimento" : "1991-01-11",
+  "StatusMatricula" : "Ativo"
+}
+
+### Atualizar informações alunos
+PATCH http://localhost:5064/api/alunos/atualizar/{id}
+Content-Type: application/json
+
+{
+  "AlunoId" : 1,
+  "NomeAluno" : "Pedro_Da_Silva",
+  "EmailAluno" : "pedrodasilva@gmail.com",
+  "DataNascimento" : "1991-01-11",
+  "StatusMatricula" : "Desativado"
+}
+
+### Deletar informações alunos
+DELETE http://localhost:5064/api/alunos/deletar/{id}
+

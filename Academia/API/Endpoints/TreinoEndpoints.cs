@@ -33,48 +33,48 @@ public static class TreinoEndpoints
 
         app.MapDelete("/api/treino/deletar/{id}", async (AppDataContent ctx, int id) =>
         {
-            Treino? resultado = ctx.Treinos.Find(id);
+            Treino? resultado = await ctx.Treinos.FindAsync(id); 
             if (resultado is null) { return Results.NotFound("Não é possivel deletar algo em que não está no banco de dados."); }
             ctx.Treinos.Remove(resultado);
-            ctx.SaveChanges();
+            await ctx.SaveChangesAsync(); 
             return Results.Ok(resultado + " deletado com sucesso.");
         });
 
         app.MapPatch("/api/treino/atualizar/{id}", async (AppDataContent ctx, int id, Treino novoTreino) =>
         {
-            Treino? resultado = ctx.Treinos.Find(id);
+            Treino? resultado = await ctx.Treinos.FindAsync(id);
             if (resultado is null) { return Results.NotFound("Treino com a id {id}"); }
             resultado.NomeTreino = novoTreino.NomeTreino;
             resultado.DescricaoTreino = novoTreino.DescricaoTreino;
             resultado.FocoMuscular = novoTreino.FocoMuscular;
             ctx.Treinos.Update(resultado);
-            ctx.SaveChanges();
+            await ctx.SaveChangesAsync();
             return Results.Ok(resultado + " atualizado com sucesso.");
         });
 
         app.MapPost("api/treino/cadastrar/{nome}", async (AppDataContent ctx, Treino treino) =>
         {
-            Treino? resultado = ctx.Treinos.FirstOrDefault(x => x.NomeTreino == treino.NomeTreino);
+            Treino? resultado = await ctx.Treinos.FirstOrDefaultAsync(x => x.NomeTreino == treino.NomeTreino);
 
             if (resultado is null)
             {
                 ctx.Treinos.Add(treino);
-                ctx.SaveChanges();
+                await ctx.SaveChangesAsync();
 
                 return Results.Ok(resultado + " criado com sucesso.");
             }
             return Results.Conflict("Exxiste o treino com o mesmo nome.");
         });
         
-        app.MapPost("/api/treinos/{treinoId}/associar-exercicio/{exercicioId}", (int treinoId, int exercicioId, AppDataContent ctx) =>
+        app.MapPost("/api/treinos/{treinoId}/associar-exercicio/{exercicioId}", async (int treinoId, int exercicioId, AppDataContent ctx) =>
         {
-            var treino = ctx.Treinos.Include(t => t.Exercicios).FirstOrDefault(t => t.TreinoId == treinoId);
+            var treino = await ctx.Treinos.Include(t => t.Exercicios).FirstOrDefaultAsync(t => t.TreinoId == treinoId);
             if (treino is null)
             {
                 return Results.NotFound("Plano de treino não encontrado.");
             }
 
-            var exercicio = ctx.Exercicios.Find(exercicioId);
+            var exercicio = await ctx.Exercicios.FindAsync(exercicioId);
             if (exercicio is null)
             {
                 return Results.NotFound("Exercício não encontrado.");
@@ -89,7 +89,7 @@ public static class TreinoEndpoints
             }
 
             treino.Exercicios.Add(exercicio);
-            ctx.SaveChanges();
+            await ctx.SaveChangesAsync();
 
             return Results.Ok(treino);
         });

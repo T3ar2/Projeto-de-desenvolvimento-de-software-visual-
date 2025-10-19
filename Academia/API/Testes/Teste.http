@@ -1,8 +1,6 @@
 ### Raiz da Aplicação
 GET http://localhost:5064
 
-### TESTE 
-GET https://localhost:5064/alunos
 
 ### Criar Exercicio
 POST http://localhost:5064/api/exercicios/cadastrar
@@ -116,3 +114,4 @@ GET http://localhost:5064/api/registros/2
 
 ### Listar Todos os Registros de Treino
 GET http://localhost:5064/api/registros
+

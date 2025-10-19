@@ -24,7 +24,7 @@ public static class AlunoEndpoints
 
         app.MapGet("/api/alunos/buscar/{nome}", async (AppDataContent ctx, String nome) =>
         {
-            Aluno? resultado = ctx.Alunos.FirstOrDefault(x => x.NomeAluno == nome);
+            Aluno? resultado = await ctx.Alunos.FirstOrDefaultAsync(x => x.NomeAluno == nome);
             if (resultado is null) { return Results.NotFound("Aluno não encontrado."); }
             return Results.Ok(resultado);
         });
@@ -39,30 +39,30 @@ public static class AlunoEndpoints
             bool jaExiste = await ctx.Alunos.AnyAsync(x => x.NomeAluno == novoAluno.NomeAluno);
             if (jaExiste is true) { return Results.Conflict("Aluno já cadastrado no bando de dados."); }
             ctx.Alunos.Add(novoAluno);
-            ctx.SaveChanges();
+            await ctx.SaveChangesAsync();
             return Results.Ok(novoAluno + " criado com sucesso.");
         });
 
         app.MapDelete("/api/alunos/deletar/{id}", async (AppDataContent ctx, int id) =>
         {
-            Aluno? resultado = ctx.Alunos.Find(id);
+            Aluno? resultado = await ctx.Alunos.FindAsync(id);
             if (resultado is null) { return Results.NotFound("não é possivel deletar algo em que não está no banco de dados."); }
             ;
             ctx.Alunos.Remove(resultado);
-            ctx.SaveChanges();
+            await ctx.SaveChangesAsync();
             return Results.Ok(resultado + " deletado com sucesso.");
         });
 
         app.MapPatch(("/api/alunos/atualizar/{id}"), async (AppDataContent ctx, int id, Aluno alunoAlterado) =>
         {
-            Aluno? resultado = ctx.Alunos.Find(id);
+            Aluno? resultado = await ctx.Alunos.FindAsync(id);
             if (resultado is null) { return Results.NotFound("Aluno não encontrado."); }
             resultado.NomeAluno = alunoAlterado.NomeAluno;
             resultado.EmailAluno = alunoAlterado.EmailAluno;
             resultado.DataNascimento = alunoAlterado.DataNascimento;
             resultado.StatusMatricula = alunoAlterado.StatusMatricula;
             ctx.Alunos.Update(resultado);
-            ctx.SaveChanges();
+            await ctx.SaveChangesAsync();
             return Results.Ok(resultado + " alterado com sucesso.");
         });
     }
