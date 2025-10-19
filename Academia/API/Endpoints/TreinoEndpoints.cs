@@ -8,26 +8,28 @@ public static class TreinoEndpoints
 {
     public static void MapTreinoEndpoints(this WebApplication app)
     {
-        app.MapGet("/api/treino/listar", async (AppDataContent ctx) =>
+        app.MapGet("/api/treinos", async (AppDataContent ctx) =>
         {
-            var alunos = await ctx.Alunos.ToListAsync();
+            var treinos = await ctx.Treinos.Include(t => t.Exercicios).ToListAsync();
 
-            if (alunos.Any())
+            if (treinos.Any())
             {
-                return Results.Ok(alunos);
+                return Results.Ok(treinos);
             }
             return Results.NotFound("A lista de treinos está vazia.");
         });
 
-        app.MapGet("/api/treino/buscar", async (AppDataContent ctx, string nome) =>
+        app.MapGet("/api/treinos/{id}", async (AppDataContent ctx, int id) =>
         {
-            var resultado = await ctx.Alunos.ToListAsync();
-            if (resultado.Any())
+            Treino? treino = await ctx.Treinos.Include(t => t.Exercicios)
+                                              .FirstOrDefaultAsync(t => t.TreinoId == id);
+            if (treino is null)
             {
-                return Results.Ok(resultado);
+                return Results.NotFound("Treino não encontrado na DataBase.");
             }
-            return Results.NotFound("Treino não encontrado na DataBase.");
+            return Results.Ok(treino);
         });
+
 
         app.MapDelete("/api/treino/deletar/{id}", async (AppDataContent ctx, int id) =>
         {

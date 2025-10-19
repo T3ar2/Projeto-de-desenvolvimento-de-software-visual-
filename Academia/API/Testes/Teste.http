@@ -3,3 +3,116 @@ GET http://localhost:5064
 
 ### TESTE 
 GET https://localhost:5064/alunos
+
+### Criar Exercicio
+POST http://localhost:5064/api/exercicios/cadastrar
+Content-Type: application/json
+
+{
+  "exercicioNome": "Supino Inclinado Halteres",
+  "exercicioDescricao": "Exercício para peitoral superior.",
+  "equipamento": "Halteres, Banco Inclinado"
+}
+
+### Listar Um Exercicio Específico 
+GET http://localhost:5064/api/exercicios/buscar/NOME_DO_EXERCICIO_AQUI
+
+
+### Atualizar um Exercicio
+PATCH http://localhost:5064/api/exercicios/atualizar/1
+Content-Type: application/json
+
+{
+  "exercicioNome": "Supino Inclinado Halteres V2",
+  "exercicioDescricao": "Versão atualizada do exercício.",
+  "equipamento": "Halteres, Banco Inclinado Ajustado"
+}
+
+### Deletar um Exercicio
+DELETE http://localhost:5064/api/exercicios/deletar/1
+
+
+
+### Criar Plano de Treino
+POST http://localhost:5064/api/treino/cadastrar/TreinoB-PeitoTriceps
+Content-Type: application/json
+
+{
+  "nomeTreino": "Treino C - Perna",
+  "descricaoTreino": "Foco em peitoral e tríceps.",
+  "focoMuscular": "Peito, Tríceps"
+}
+
+### Associar Exercicio a um Plano de Treino Existente
+POST http://localhost:5064/api/treinos/1/associar-exercicio/1
+
+### Listar Todos os Planos de Treino
+GET http://localhost:5064/api/treinos
+
+### Listar Um Plano de Treino Específico
+GET http://localhost:5064/api/treinos/2
+
+### Editar um Plano de Treino
+PATCH http://localhost:5064/api/treino/atualizar/1
+Content-Type: application/json
+
+{
+  "nomeTreino": "Treino A - Braços Atualizado",
+  "descricaoTreino": "Foco principal em bíceps e tríceps com ajustes.",
+  "focoMuscular": "Braços"
+}
+
+### Excluir um Plano de Treino
+DELETE http://localhost:5064/api/treino/deletar/1
+
+
+
+### Registrar Treino Com Plano Vinculado
+POST http://localhost:5064/api/registros
+Content-Type: application/json
+
+{
+  "data": "2025-10-18T23:30:00Z",
+  "treinoId": 1
+}
+
+
+### Adicionar Detalhe ao Registro Com Plano
+POST http://localhost:5064/api/registros/1/detalhes
+Content-Type: application/json
+
+{
+  "exercicioId": 2,
+  "series": 4,
+  "repeticoes": 8,
+  "carga": 60.0
+}
+
+
+### Registrar Treino Sem Vinculo com Plano
+POST http://localhost:5064/api/registros
+Content-Type: application/json
+
+{
+  "data": "2025-10-18T23:35:00Z",
+  "treinoId": null
+}
+
+
+### Adicionar Detalhe ao Registro Sem Plano
+POST http://localhost:5064/api/registros/2/detalhes
+Content-Type: application/json
+
+{
+  "exercicioId": 1,
+  "series": 3,
+  "repeticoes": 10,
+  "carga": 55.0
+}
+
+### Listar um Registro de Treino
+GET http://localhost:5064/api/registros/2
+
+
+### Listar Todos os Registros de Treino
+GET http://localhost:5064/api/registros

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\erick\\OneDrive\\Documentos\\GitHub\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj": {}
+    "C:\\Users\\Erick\\Documents\\projetoEvoFit\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\erick\\OneDrive\\Documentos\\GitHub\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj": {
+    "C:\\Users\\Erick\\Documents\\projetoEvoFit\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\erick\\OneDrive\\Documentos\\GitHub\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Erick\\Documents\\projetoEvoFit\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\erick\\OneDrive\\Documentos\\GitHub\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\erick\\OneDrive\\Documentos\\GitHub\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\obj\\",
+        "projectPath": "C:\\Users\\Erick\\Documents\\projetoEvoFit\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\Erick\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Erick\\Documents\\projetoEvoFit\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\erick\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Erick\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -77,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.413/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.121/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -24,13 +24,36 @@ public class AppDataContent : DbContext
     public DbSet<Treino> Treinos { get; set; }
     public DbSet<PlanoDeTreino> PlanosDeTreino { get; set; }
     public DbSet<Exercicio> Exercicios { get; set; } 
+    public DbSet<RegistroTreino> RegistrosTreino { get; set; }
+    public DbSet<DetalheRegistro> DetalhesRegistro { get; set; }
 
-     protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<PlanoDeTreino>()
-            .HasOne(pt => pt.Aluno)
-            .WithMany()
-            .HasForeignKey(pt => pt.AlunoId);
-    }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<PlanoDeTreino>()
+                .HasOne(pt => pt.Aluno)
+                .WithMany()
+                .HasForeignKey(pt => pt.AlunoId);
+
+            modelBuilder.Entity<PlanoDeTreino>()
+               .HasOne(pt => pt.Treino)
+               .WithMany()
+               .HasForeignKey(pt => pt.TreinoId);
+
+            modelBuilder.Entity<RegistroTreino>()
+               .HasOne(rt => rt.Treino)
+               .WithMany()
+               .HasForeignKey(rt => rt.TreinoId)
+               .IsRequired(false);
+
+            modelBuilder.Entity<RegistroTreino>()
+               .HasMany(rt => rt.Detalhes)
+               .WithOne(dr => dr.RegistroTreino)
+               .HasForeignKey(dr => dr.RegistroTreinoId);
+
+            modelBuilder.Entity<DetalheRegistro>()
+               .HasOne(dr => dr.Exercicio)
+               .WithMany()
+               .HasForeignKey(dr => dr.ExercicioId);
+        }
 
 }

@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq.Expressions;
 using API.Endpoints;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
@@ -18,6 +19,11 @@ var path = Path.Combine(Directory.GetCurrentDirectory(), "academia.db");
 builder.Services.AddDbContext<AppDataContent>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
+
+builder.Services.ConfigureHttpJsonOptions(options =>
+{
+    options.SerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+});
 
 var app = builder.Build();
 
@@ -33,6 +39,8 @@ if (app.Environment.IsDevelopment())
 app.MapGet("/", () => "API Academia está rodando!");
 
 app.MapExerciciosRoutes();
-
+app.MapAlunosRoutes();    
+app.MapTreinoEndpoints();
+app.MapRegistroTreinoRoutes();
 
 app.Run();  
