@@ -3,18 +3,24 @@ import Aluno from "../../../models/Aluno";
 import axios from "axios";
 
 function ListarAluno(){
-    const [aluno, setAluno] = useState<Aluno[]>([]);
-    useEffect(() =>{ListarAlunoAPI();},[])
+    const [alunos, setAluno] = useState<Aluno[]>([]);
+    useEffect(() =>{listarAlunoAPI();},[])
 
         async function listarAlunoAPI(){
             try{
                 const resposta = await axios.get("http://localhost:5064/api/alunos/listar");
                 const dados = resposta.data;
-                setAluno(dados);
+                if (Array.isArray(dados)) {
+                setAluno(dados); 
+                }
+                else {
+                setAluno([]); 
+                console.warn("API returned non-array data, but status was OK. List is likely empty.");
+            }
             }
             catch(error){console.log("Erro: " + error)}
         }
-    return{
+    return(
         <div id="componente_listar_alunos">
             <h1>Alunos Cadastrados</h1>
             <table>
@@ -27,20 +33,20 @@ function ListarAluno(){
                         <th>Status</th>
                     </tr>
                 </thead>
-            </table>
-            <tbody>
-                {aluno.map(aluno)=>()
-                    <tr>
-                        <td>{aluno.id}</td>
-                        <td>{aluno.nome}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                <tbody>
+                    {alunos.map((alunoItem) => (
+                    <tr key={alunoItem.alunoId}>
+                        <td>{alunoItem.alunoId}</td>
+                        <td>{alunoItem.nomeAluno}</td>
+                        <td>{alunoItem.emailAluno}</td>
+                        <td>{alunoItem.dataNascimento}</td>
+                        <td>{alunoItem.statusMatricula}</td>
                     </tr>
-                }
-            </tbody>
+                    ))}
+                </tbody>
+            </table>
         </div>
-    };
+    );
 }
 
 export default ListarAluno;

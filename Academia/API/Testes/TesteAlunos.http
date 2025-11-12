@@ -17,8 +17,7 @@ Content-Type: application/json
   "StatusMatricula" : "Ativo"
 }
 
-### Atualizar informações alunos
-PATCH http://localhost:5064/api/alunos/atualizar/{id}
+### Atualizar informações alunos  PATCH http://localhost:5064/api/alunos/atualizar/{id}
 Content-Type: application/json
 
 {

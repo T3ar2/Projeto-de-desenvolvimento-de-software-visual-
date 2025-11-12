@@ -8,18 +8,21 @@ using System.Linq.Expressions;
 using API.Endpoints;
 using System.Text.Json.Serialization;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend",
-        builder =>
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+        policy =>
         {
-            builder.AllowAnyOrigin()
-                   .AllowAnyMethod()
-                   .AllowAnyHeader();
+            // This line allows requests from your React development server (default port 3000)
+            policy.WithOrigins("http://localhost:3000") 
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
         });
 });
 
@@ -33,12 +36,14 @@ builder.Services.AddDbContext<AppDataContent>(options =>
 
 builder.Services.ConfigureHttpJsonOptions(options =>
 {
+    options.SerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
     options.SerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
 });
 
 var app = builder.Build();
 
 
+app.UseCors(MyAllowSpecificOrigins); 
 
 if (app.Environment.IsDevelopment())
 {

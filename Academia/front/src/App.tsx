@@ -1,25 +1,24 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
-import ListarAluno from "./components/pages/aluno/ListarAluno";
+import ListarAluno from "./components/pages/aluno/ListarAluno.tsx";
 
 
-const App: React.FC = () => {
+function App(){
   return (
     <BrowserRouter>
             <div className="App">
                 <nav>
                     <ul>
                         <li>
-                            <Link to="/">Alunos Cadastrados</Link>
-                        </li>
-                        <li>
-                            <Link to="/cadastro">Cadastro de Produto</Link>
+                            <Link to="/pages/aluno/listarAluno">Alunos Cadastrados</Link>
                         </li>
                     </ul>
                 </nav>
-                <Routes>
-                    <Route path="/" element={<ListarAluno />} />
-                </Routes>
+                <div id="Conteudo">
+                    <Routes>
+                        <Route path="/" element={<ListarAluno />} />
+                    </Routes>
+                </div>
             </div>
         </BrowserRouter>
   );
