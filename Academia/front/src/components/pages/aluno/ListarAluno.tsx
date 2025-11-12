@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
 import Aluno from "../../../models/Aluno";
+import axios from "axios";
 
 function ListarAluno(){
     const [aluno, setAluno] = useState<Aluno[]>([]);
     useEffect(() =>{ListarAlunoAPI();},[])
 
-        async listarAlunoAPI(){
+        async function listarAlunoAPI(){
             try{
-                const resposta = 
+                const resposta = await axios.get("http://localhost:5064/api/alunos/listar");
+                const dados = resposta.data;
+                setAluno(dados);
             }
+            catch(error){console.log("Erro: " + error)}
         }
     return{
         <div id="componente_listar_alunos">
@@ -25,10 +29,18 @@ function ListarAluno(){
                 </thead>
             </table>
             <tbody>
-
+                {aluno.map(aluno)=>()
+                    <tr>
+                        <td>{aluno.id}</td>
+                        <td>{aluno.nome}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                }
             </tbody>
         </div>
-    }
+    };
 }
 
 export default ListarAluno;
