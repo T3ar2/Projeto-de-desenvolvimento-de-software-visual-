@@ -1,5 +1,5 @@
 export default interface Aluno{
-    alunoId: number;
+    alunoId?: number;
     emailAluno: string;
     nomeAluno: string;
     dataNascimento: string;

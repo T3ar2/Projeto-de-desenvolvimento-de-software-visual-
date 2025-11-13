@@ -22,17 +22,28 @@ function ListarAluno(){
                 }
             catch(error){console.log("Erro: " + error)}
         }
-    return(
+    const getStatusClass = (status: string) => {
+        const lowerStatus = status.toLowerCase();
+        if (lowerStatus === "ativo") {
+            return "status-ativo";
+        }
+    return "status-inativo";
+    };
+   return(
         <div id="componente_listar_alunos">
-            <h1>Alunos Cadastrados</h1>
-            <table>
+            {/* Aplica a classe de título grande e estilizado */}
+            <h1 className="content-title">Alunos Cadastrados</h1>
+            
+            {/* Aplica a classe de estilo à tabela */}
+            <table className="alunos-tabela"> 
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Email</th> {/* Mantendo a ordem do seu código */}
                         <th>Nome</th>
-                        <th>Email</th>
-                        <th>Data de Narcimento</th>
+                        <th>Data de Nascimento</th>
                         <th>Status</th>
+                        <th>Ações</th> {/* Coluna para botões de edição/exclusão */}
                     </tr>
                 </thead>
                 <tbody>
@@ -41,8 +52,19 @@ function ListarAluno(){
                         <td>{alunoItem.alunoId}</td>
                         <td>{alunoItem.emailAluno}</td>
                         <td>{alunoItem.nomeAluno}</td>
-                        <td>{alunoItem.dataNascimento}</td>
-                        <td>{alunoItem.statusMatricula}</td>
+                        {/* Garante que a data de nascimento seja exibida */}
+                        <td>{alunoItem.dataNascimento}</td> 
+                        
+                        {/* Aplica classe de cor condicional ao status */}
+                        <td className={getStatusClass(alunoItem.statusMatricula)}>
+                            {alunoItem.statusMatricula}
+                        </td>
+                        
+                        {/* Coluna de Ações (Botões Estilizados) */}
+                        <td>
+                            <button className="action-button">Editar</button>
+                            <button className="action-button">Excluir</button>
+                        </td>
                     </tr>
                     ))}
                 </tbody>

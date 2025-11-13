@@ -1,6 +1,11 @@
+/*
+ * ======================================================
+ * ESTILOS GLOBAIS E TEMA GYM FLOW
+ * Paleta: Primary Blue (#1e3a8a), Accent Cyan (#00bcd4), Fundo Claro (#f7f7f9)
+ * ======================================================
+ */
 
-
-
+/* 1. RESET GLOBAL E LAYOUT PRINCIPAL */
 body {
   margin: 0;
   padding: 0;
@@ -8,10 +13,9 @@ body {
   color: #1a1a1a;
   font-family: 'Roboto', 'Segoe UI', sans-serif; /* Prioriza fontes limpas e modernas */
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Correção para evitar barra de rolagem horizontal desnecessária */
 }
 
-/* 2. Container Principal */
 .App {
   display: flex;
   flex-direction: column;
@@ -19,17 +23,17 @@ body {
   width: 100%;
 }
 
-/* 3. Cabeçalho de Alto Impacto */
+/* 2. CABEÇALHO (HEADER) */
 .App-header-top {
     width: 100%;
-    background-color: #1e3a8a; /* Azul escuro e profundo (Estilo Microsoft/Enterprise) */
+    background-color: #1e3a8a; /* Azul escuro e profundo */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 20px 40px; 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white; /* Texto claro para contraste */
-    box-sizing: border-box;
+    color: white; 
+    box-sizing: border-box; /* Correção de largura/padding */
 }
 
 .App-logo-link h1 {
@@ -61,20 +65,40 @@ body {
     transform: translateY(-2px);
 }
 
-/* 4. Área de Conteúdo Principal */
+/* 3. ÁREA DE CONTEÚDO PRINCIPAL E TÍTULOS */
 #Conteudo {
   flex-grow: 1;
   width: 100%;
   max-width: 1400px; 
   padding: 30px;
-  margin: 0 auto; /* Centraliza a área de conteúdo */
+  margin: 0 auto; 
   box-sizing: border-box;
 }
 
-/* 5. Estilo de Card de Dashboard (Home.tsx) */
+/* Container de Estilo para as páginas internas (Listar/Cadastrar) */
+#Conteudo .page-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+}
+
+/* Estilo para Títulos dentro das Páginas (h1/h2) */
+.content-title {
+    font-size: 2.2em;
+    color: #1e3a8a; 
+    margin-bottom: 25px;
+    font-weight: 700;
+    border-left: 5px solid #00bcd4; 
+    padding-left: 15px;
+}
+
+/* 4. DASHBOARD GRID E CARDS (Home.tsx e AlunoMenu.tsx) */
 .DashboardCardGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Layout responsivo de cards */
+  /* Layout responsivo: no mínimo 300px por coluna, ocupando 1fr (espaço restante) */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
   gap: 30px; 
   margin-top: 40px;
 }
@@ -82,23 +106,22 @@ body {
 .DashboardCard {
   background-color: #ffffff;
   border-radius: 12px;
-  /* Múltiplas sombras sutis para um efeito de profundidade moderno (Estilo Google/Microsoft) */
+  /* Múltiplas sombras sutis para profundidade */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 
               0 10px 20px rgba(0, 0, 0, 0.08); 
   padding: 30px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   position: relative;
-  overflow: hidden; /* Garante que o gradiente de fundo não ultrapasse */
+  overflow: hidden; 
 }
 
 .DashboardCard:hover {
-  transform: translateY(-8px); /* Elevação sutil no hover */
+  transform: translateY(-8px); /* Elevação no hover */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 
               0 20px 40px rgba(0, 0, 0, 0.15); 
 }
 
-/* Gradiente Sutil no Topo do Card */
 .CardHeaderGradient {
     height: 5px;
     width: 100%;
@@ -116,7 +139,7 @@ body {
 }
 
 .DashboardCard:hover .DashboardCard-icon {
-    color: #00bcd4; /* Mudança de cor no hover */
+    color: #00bcd4;
 }
 
 .DashboardCard h2 {
@@ -134,8 +157,8 @@ body {
     min-height: 40px;
 }
 
-/* Link que cobre todo o card (aumenta a área de clique) */
 .DashboardCard a {
+    /* Link invisível que cobre o card inteiro */
     position: absolute;
     top: 0;
     left: 0;
@@ -146,8 +169,8 @@ body {
     color: transparent; 
 }
 
-/* Rótulo de Ação (simula um botão) */
 .CardActionLabel {
+    /* Rótulo de Ação (simula um botão) */
     display: inline-block;
     color: #00bcd4;
     font-weight: 700;
@@ -155,7 +178,7 @@ body {
     border-bottom: 2px solid #00bcd4;
     padding-bottom: 2px;
     transition: border-bottom-color 0.3s;
-    pointer-events: none; /* Ignora o clique, que é capturado pelo <a> */
+    pointer-events: none; 
 }
 
 .DashboardCard:hover .CardActionLabel {
@@ -164,21 +187,223 @@ body {
 }
 
 
-/* 6. Estilo de Base para as Páginas CRUD */
-/* Usado para ListarAluno, CadastrarAluno etc. */
-#Conteudo .page-container {
-    background-color: #ffffff;
+/* 5. ESTILOS PARA FORMULÁRIOS (CadastrarAluno.tsx) */
+.form-aluno {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    max-width: 600px; 
+    margin: 0 auto;
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1e3a8a; 
+    font-size: 1em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="date"] {
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none; 
+}
+
+/* Efeito de foco (Google/Material inspired) */
+.form-group input:focus {
+    border-color: #00bcd4; 
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.3); 
+}
+
+/* Estilo do Botão de Submissão */
+.btn-submit {
+    background-color: #00bcd4; 
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 188, 212, 0.4);
     margin-top: 20px;
 }
 
-.content-title {
-    font-size: 2.2em;
+.btn-submit:hover {
+    background-color: #008f9c; 
+    transform: translateY(-2px); 
+}
+
+/* 6. ESTILOS PARA RADIO BUTTONS (Status Matrícula) */
+.radio-group-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 5px;
+}
+
+.radio-label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.2s;
+}
+
+.radio-label:hover {
     color: #1e3a8a; 
-    margin-bottom: 25px;
-    font-weight: 700;
-    border-left: 5px solid #00bcd4; 
-    padding-left: 15px;
+}
+
+.radio-label input[type="radio"] {
+    /* Estilização personalizada para o radio */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.radio-label input[type="radio"]:checked {
+    border-color: #00bcd4;
+}
+
+.radio-label input[type="radio"]:checked::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #00bcd4; 
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* 7. ESTILOS PARA TABELAS (ListarAluno.tsx) */
+.alunos-tabela {
+    width: 100%;
+    border-collapse: collapse; 
+    margin-top: 20px;
+    font-size: 0.95em;
+    table-layout: fixed; 
+}
+
+.alunos-tabela th, .alunos-tabela td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0; 
+}
+
+.alunos-tabela thead th {
+    background-color: #1e3a8a; 
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-top-left-radius: 8px; 
+    border-top-right-radius: 8px;
+}
+
+/* Efeito Listrado */
+.alunos-tabela tbody tr:nth-child(even) {
+    background-color: #f9f9fb; 
+}
+
+/* Efeito no hover da linha */
+.alunos-tabela tbody tr:hover {
+    background-color: #e0f7fa; 
+    cursor: pointer;
+}
+
+/* Cores de Status */
+.status-ativo {
+    font-weight: bold;
+    color: #00bcd4; 
+}
+
+.status-inativo {
+    font-weight: bold;
+    color: #ff6347; 
+}
+
+/* Estiliza os botões de Ação na tabela */
+.action-button {
+    background: none;
+    border: none;
+    color: #1e3a8a;
+    cursor: pointer;
+    margin-right: 10px;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.action-button:hover {
+    color: #00bcd4;
+}
+
+
+/* 8. RESPONSIVIDADE (MEDIA QUERIES) */
+@media (max-width: 768px) {
+    
+    /* Ajuste do Cabeçalho Principal */
+    .App-header-top {
+        padding: 15px 10px; 
+        flex-direction: column; 
+        gap: 10px; 
+        justify-content: center;
+        align-items: center; 
+    }
+
+    /* Garante que o contêiner do botão e do título não causem overflow */
+    .App-logo-link, .App-nav-links {
+        width: 100%; 
+        box-sizing: border-box; 
+    }
+    
+    /* Ajuste do Título */
+    .App-logo-link h1 {
+        font-size: 1.4em; 
+        text-align: center; 
+    }
+
+    /* Ajuste do Botão "Menu Principal" */
+    .App-home-button {
+        display: block; 
+        text-align: center;
+        padding: 10px 0; 
+    }
+
+    /* Ajuste da Área de Conteúdo */
+    #Conteudo {
+        padding: 20px 10px; 
+    }
+
+    /* Ajuste dos Cards */
+    .DashboardCard {
+        padding: 20px;
+    }
 }
