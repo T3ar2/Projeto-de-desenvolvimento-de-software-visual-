@@ -9,15 +9,17 @@ function ListarAluno(){
         async function listarAlunoAPI(){
             try{
                 const resposta = await axios.get("http://localhost:5064/api/alunos/listar");
-                const dados = resposta.data;
+                const dados = resposta.data.$values;
+
+                console.log("DADOS RECEBIDOS:", dados);
                 if (Array.isArray(dados)) {
-                setAluno(dados); 
+                    setAluno(dados);
+                    console.log("SUCESSO: Lista de alunos contém dados.");
+                } else {
+                    setAluno([]);
+                    console.warn("ALERTA: API retornou lista vazia ou não-array.");
                 }
-                else {
-                setAluno([]); 
-                console.warn("API returned non-array data, but status was OK. List is likely empty.");
-            }
-            }
+                }
             catch(error){console.log("Erro: " + error)}
         }
     return(
@@ -37,8 +39,8 @@ function ListarAluno(){
                     {alunos.map((alunoItem) => (
                     <tr key={alunoItem.alunoId}>
                         <td>{alunoItem.alunoId}</td>
-                        <td>{alunoItem.nomeAluno}</td>
                         <td>{alunoItem.emailAluno}</td>
+                        <td>{alunoItem.nomeAluno}</td>
                         <td>{alunoItem.dataNascimento}</td>
                         <td>{alunoItem.statusMatricula}</td>
                     </tr>

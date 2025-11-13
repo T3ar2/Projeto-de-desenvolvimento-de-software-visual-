@@ -126,21 +126,6 @@ C:\Users\Nicollas\Desktop\Up\Projetos\bom dia\Academia\Api\obj\Debug\net8.0\refi
 C:\Users\Nicollas\Desktop\Up\Projetos\bom dia\Academia\Api\obj\Debug\net8.0\API.pdb
 C:\Users\Nicollas\Desktop\Up\Projetos\bom dia\Academia\Api\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Users\Nicollas\Desktop\Up\Projetos\bom dia\Academia\Api\obj\Debug\net8.0\ref\API.dll
-C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\API.exe
-C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\API.dll
-C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.Data.Sqlite.dll
-C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Sqlite.dll
-C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\SQLitePCLRaw.batteries_v2.dll
-C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\SQLitePCLRaw.core.dll
-C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\SQLitePCLRaw.provider.e_sqlite3.dll
-C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\actdigital\Documents\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\actdigital\Documents\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\appsettings.json
 C:\Users\actdigital\Documents\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\API.exe
@@ -412,13 +397,23 @@ C:\Users\Erick\Documents\projetoEvoFit\Projeto-de-desenvolvimento-de-software-vi
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\appsettings.json
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\API.staticwebassets.endpoints.json
+C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\API.exe
+C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\API.deps.json
+C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\API.runtimeconfig.json
+C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\API.dll
+C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\API.pdb
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Humanizer.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.Data.Sqlite.dll
+C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Sqlite.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
@@ -426,7 +421,14 @@ C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-vis
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\SQLitePCLRaw.batteries_v2.dll
+C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\SQLitePCLRaw.core.dll
+C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\SQLitePCLRaw.provider.e_sqlite3.dll
+C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\System.CodeDom.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\System.Composition.AttributedModel.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\System.Composition.Convention.dll
@@ -503,6 +505,7 @@ C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-vis
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\runtimes\osx-x64\native\libe_sqlite3.dylib
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\runtimes\win-arm\native\e_sqlite3.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
+C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\obj\Debug\net8.0\API.csproj.AssemblyReference.cache
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\obj\Debug\net8.0\rpswa.dswa.cache.json
@@ -525,8 +528,5 @@ C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-vis
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\obj\Debug\net8.0\API.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\obj\Debug\net8.0\refint\API.dll
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\obj\Debug\net8.0\API.pdb
-C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\API.deps.json
-C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\API.runtimeconfig.json
-C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\bin\Debug\net8.0\API.pdb
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Users\Nicollas\Desktop\Up\Projetos\Projeto-de-desenvolvimento-de-software-visual-\Academia\API\obj\Debug\net8.0\ref\API.dll
