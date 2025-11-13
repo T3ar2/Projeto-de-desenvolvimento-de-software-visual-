@@ -1,38 +1,184 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f9; /* Fundo limpo e muito suave */
+  color: #1a1a1a;
+  font-family: 'Roboto', 'Segoe UI', sans-serif; /* Prioriza fontes limpas e modernas */
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* 2. Container Principal */
+.App {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 100vh;
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+/* 3. Cabeçalho de Alto Impacto */
+.App-header-top {
+    width: 100%;
+    background-color: #1e3a8a; /* Azul escuro e profundo (Estilo Microsoft/Enterprise) */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px 40px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white; /* Texto claro para contraste */
+    box-sizing: border-box;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-logo-link h1 {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: white;
+}
+
+.App-logo-link h1 span {
+    color: #00bcd4; /* Destaque Ciano vibrante */
+    font-weight: 900;
+}
+
+.App-home-button {
+    text-decoration: none;
+    color: #00bcd4; 
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 2px solid #00bcd4;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s;
+}
+
+.App-home-button:hover {
+    background-color: #00bcd4;
+    color: #1e3a8a;
+    transform: translateY(-2px);
+}
+
+/* 4. Área de Conteúdo Principal */
+#Conteudo {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 1400px; 
+  padding: 30px;
+  margin: 0 auto; /* Centraliza a área de conteúdo */
+  box-sizing: border-box;
+}
+
+/* 5. Estilo de Card de Dashboard (Home.tsx) */
+.DashboardCardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Layout responsivo de cards */
+  gap: 30px; 
+  margin-top: 40px;
+}
+
+.DashboardCard {
+  background-color: #ffffff;
+  border-radius: 12px;
+  /* Múltiplas sombras sutis para um efeito de profundidade moderno (Estilo Google/Microsoft) */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 
+              0 10px 20px rgba(0, 0, 0, 0.08); 
+  padding: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* Garante que o gradiente de fundo não ultrapasse */
+}
+
+.DashboardCard:hover {
+  transform: translateY(-8px); /* Elevação sutil no hover */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 
+              0 20px 40px rgba(0, 0, 0, 0.15); 
+}
+
+/* Gradiente Sutil no Topo do Card */
+.CardHeaderGradient {
+    height: 5px;
+    width: 100%;
+    background: linear-gradient(to right, #1e3a8a, #00bcd4); 
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.DashboardCard-icon {
+    font-size: 3.5em;
+    color: #1e3a8a; 
+    margin-bottom: 15px;
+    transition: color 0.3s;
+}
+
+.DashboardCard:hover .DashboardCard-icon {
+    color: #00bcd4; /* Mudança de cor no hover */
+}
+
+.DashboardCard h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+    font-size: 1.6em;
+    font-weight: 600;
+}
+
+.DashboardCard p {
+    color: #6c757d; 
+    font-size: 1em;
+    margin-bottom: 25px;
+    min-height: 40px;
+}
+
+/* Link que cobre todo o card (aumenta a área de clique) */
+.DashboardCard a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    text-decoration: none; 
+    color: transparent; 
+}
+
+/* Rótulo de Ação (simula um botão) */
+.CardActionLabel {
+    display: inline-block;
+    color: #00bcd4;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #00bcd4;
+    padding-bottom: 2px;
+    transition: border-bottom-color 0.3s;
+    pointer-events: none; /* Ignora o clique, que é capturado pelo <a> */
+}
+
+.DashboardCard:hover .CardActionLabel {
+    border-bottom-color: #1e3a8a;
+    color: #1e3a8a;
+}
+
+
+/* 6. Estilo de Base para as Páginas CRUD */
+/* Usado para ListarAluno, CadastrarAluno etc. */
+#Conteudo .page-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+}
+
+.content-title {
+    font-size: 2.2em;
+    color: #1e3a8a; 
+    margin-bottom: 25px;
+    font-weight: 700;
+    border-left: 5px solid #00bcd4; 
+    padding-left: 15px;
 }
