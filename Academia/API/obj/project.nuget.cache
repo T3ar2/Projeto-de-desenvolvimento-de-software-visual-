@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qnbrfdMbPQk=",
+  "dgSpecHash": "N8gsT3GY4Ro=",
   "success": true,
   "projectFilePath": "C:\\Users\\Nicollas\\Desktop\\Up\\Projetos\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj",
   "expectedPackageFiles": [
@@ -42,6 +42,7 @@
     "C:\\Users\\Nicollas\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\9.0.6\\swashbuckle.aspnetcore.swaggerui.9.0.6.nupkg.sha512",
     "C:\\Users\\Nicollas\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\Nicollas\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
+    "C:\\Users\\Nicollas\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\Nicollas\\.nuget\\packages\\system.composition\\6.0.0\\system.composition.6.0.0.nupkg.sha512",
     "C:\\Users\\Nicollas\\.nuget\\packages\\system.composition.attributedmodel\\6.0.0\\system.composition.attributedmodel.6.0.0.nupkg.sha512",
     "C:\\Users\\Nicollas\\.nuget\\packages\\system.composition.convention\\6.0.0\\system.composition.convention.6.0.0.nupkg.sha512",

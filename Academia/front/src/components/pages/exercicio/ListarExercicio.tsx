@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
-import Aluno from "../../../models/Aluno";
 import axios from "axios";
+import Exercicio from "../../../models/Exercicio";
 
-function ListarAluno(){
-    const [alunos, setAluno] = useState<Aluno[]>([]);
+function ListarExercicio(){
+    const [exercicios, setExercicios] = useState<Exercicio[]>([]);
     useEffect(() =>{listarAlunoAPI();},[])
 
         async function listarAlunoAPI(){
             try{
-                const resposta = await axios.get("http://localhost:5064/api/alunos/listar");
+                const resposta = await axios.get("http://localhost:5064/api/exercicios/listar");
                 const dados = resposta.data.$values;
 
                 console.log("DADOS RECEBIDOS:", dados);
                 if (Array.isArray(dados)) {
-                    setAluno(dados);
-                    console.log("SUCESSO: Lista de alunos contém dados.");
+                    setExercicios(dados);
+                    console.log("SUCESSO: Lista de exercicios contém dados.");
                 } else {
-                    setAluno([]);
+                    setExercicios([]);
                     console.warn("ALERTA: API retornou lista vazia ou não-array.");
                 }
                 }
@@ -32,34 +32,26 @@ function ListarAluno(){
    return(
         <div id="componente_listar_alunos">
             {/* Aplica a classe de título grande e estilizado */}
-            <h1 className="content-title">Alunos Cadastrados</h1>
+            <h1 className="content-title">Exercicios Cadastrados</h1>
             
             {/* Aplica a classe de estilo à tabela */}
             <table className="alunos-tabela"> 
                 <thead>
-                    <tr id="header-list">
+                    <tr>
                         <th>#</th>
-                        <th>Email</th> {/* Mantendo a ordem do seu código */}
-                        <th>Nome</th>
-                        <th>Data de Nascimento</th>
-                        <th>Status</th>
+                        <th>Nome</th> {/* Mantendo a ordem do seu código */}
+                        <th>Descrição</th>
+                        <th>Equipamento</th>
                         <th>Ações</th> {/* Coluna para botões de edição/exclusão */}
                     </tr>
                 </thead>
                 <tbody>
-                    {alunos.map((alunoItem) => (
-                    <tr key={alunoItem.alunoId}>
-                        <td>{alunoItem.alunoId}</td>
-                        <td>{alunoItem.emailAluno}</td>
-                        <td>{alunoItem.nomeAluno}</td>
-                        {/* Garante que a data de nascimento seja exibida */}
-                        <td>{alunoItem.dataNascimento}</td> 
-                        
-                        {/* Aplica classe de cor condicional ao status */}
-                        <td className={getStatusClass(alunoItem.statusMatricula)}>
-                            {alunoItem.statusMatricula}
-                        </td>
-                        
+                    {exercicios.map((exercicioItem) => (
+                    <tr key={exercicioItem.exercicioId}>
+                        <td>{exercicioItem.exercicioId}</td>
+                        <td>{exercicioItem.exercicioNome}</td>
+                        <td>{exercicioItem.exercicioDescricao}</td>  
+                        <td>{exercicioItem.equipamento}</td>  
                         {/* Coluna de Ações (Botões Estilizados) */}
                         <td>
                             <button className="action-button">Editar</button>
@@ -73,4 +65,4 @@ function ListarAluno(){
     );
 }
 
-export default ListarAluno;
+export default ListarExercicio;

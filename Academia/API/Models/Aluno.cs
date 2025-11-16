@@ -8,7 +8,7 @@ public class Aluno
 {
 
 
-    [key]
+    [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int AlunoId { set; get; }
     public string NomeAluno { set; get; }

@@ -26,7 +26,7 @@ const Home = () => {
             title: "Biblioteca de Exercícios",
             description: "Mantenha um catálogo completo de exercícios com detalhes técnicos e vídeos.",
             icon: "💪", // Ícone de Músculo/Força
-            link: "/pages/exercicio/listar",
+            link: "/pages/exercicio/menu",
             action: "Gerenciar Exercícios",
         },
         {
