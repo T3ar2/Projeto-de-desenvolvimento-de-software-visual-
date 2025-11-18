@@ -10,6 +10,7 @@ function CadastrarAluno(){
     async function SubmeterCadastro(e:any){
         e.preventDefault();
         EnviarParaAPI();
+        alert ("Cadastro feito com sucesso! ");
     }
 
     async function EnviarParaAPI(){
@@ -21,6 +22,7 @@ function CadastrarAluno(){
            } 
            const resposta = await axios.post("http://localhost:5064/api/exercicios/cadastrar", exercicio);
            console.log(resposta.data);
+           
         }
         catch(error){
             console.log("Erro ao cadastrar o aluno: " + error);
@@ -38,20 +40,20 @@ function CadastrarAluno(){
             
             {/* Campo Nome */}
             <div className="form-group">
-                <label htmlFor="nomeAluno">Nome:</label>
-                <input id="nomeAluno" type="text" onChange={(e: any) => setExercicioNome(e.target.value)}/>
+                <label>Nome:</label>
+                <input type="text" onChange={(e: any) => setExercicioNome(e.target.value)}/>
             </div>
             
-            {/* Campo Email */}
+            {/* Campo Descrição */}
             <div className="form-group">
                 <label>Descrição:</label>
                 <input type="text" onChange={(e:any) => setExercicioDescricao(e.target.value)}/>
             </div>
             
-            {/* Campo Data de Nascimento */}
+            {/* Campo de Equipamentos */}
             <div className="form-group">
-                <label htmlFor="dataNascimento">Equipamento</label>
-                <input id="dataNascimento" type="text" onChange={(e:any) => setEquipamento(e.target.value)}/>
+                <label htmlFor="equipamento">Equipamento</label>
+                <input id="equipamento" type="text" onChange={(e:any) => setEquipamento(e.target.value)}/>
             </div>
             
             {/* Botão de Submissão */}

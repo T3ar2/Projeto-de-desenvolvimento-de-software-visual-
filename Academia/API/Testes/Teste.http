@@ -30,7 +30,6 @@ Content-Type: application/json
 DELETE http://localhost:5064/api/exercicios/deletar/1
 
 
-
 ### Criar Plano de Treino
 POST http://localhost:5064/api/treino/cadastrar/TreinoB-PeitoTriceps
 Content-Type: application/json

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Aluno from "../../../models/Aluno";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 function ListarAluno(){
     const [alunos, setAluno] = useState<Aluno[]>([]);
@@ -29,6 +30,24 @@ function ListarAluno(){
         }
     return "status-inativo";
     };
+
+    async function deletarAlunoAPI(id : number) {
+        try {
+            const resposta = await axios.delete(`http://localhost:5064/api/alunos/deletar/${id}`)
+            listarAlunoAPI();
+             console.log(`${id} deletado com sucesso.`)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    function deletarAluno(id : number){
+        deletarAlunoAPI(id);
+    }
+
+
+
+
    return(
         <div id="componente_listar_alunos">
             {/* Aplica a classe de título grande e estilizado */}
@@ -62,8 +81,8 @@ function ListarAluno(){
                         
                         {/* Coluna de Ações (Botões Estilizados) */}
                         <td>
-                            <button className="action-button">Editar</button>
-                            <button className="action-button">Excluir</button>
+                            <button className="action-button" onClick={() => deletarAluno(alunoItem.alunoId!)}>Excluir</button>
+                            <Link className="action-button" to={`/aluno/alterar/${alunoItem.alunoId}`}>Editar</Link>
                         </td>
                     </tr>
                     ))}

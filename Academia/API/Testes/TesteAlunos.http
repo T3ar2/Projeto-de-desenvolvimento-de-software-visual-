@@ -2,7 +2,7 @@
 GET http://localhost:5064/api/alunos/listar
 
 ### Buscar Aluno cadastrados
-GET http://localhost:5064/api/alunos/buscar/{nome}
+GET http://localhost:5064/api/alunos/buscar/{id}
 
 
 ### Cadastrar Alunos
@@ -17,7 +17,8 @@ Content-Type: application/json
   "StatusMatricula" : "Ativo"
 }
 
-### Atualizar informações alunos  PATCH http://localhost:5064/api/alunos/atualizar/{id}
+### Atualizar informações alunos  
+PATCH http://localhost:5064/api/alunos/atualizar/{id}
 Content-Type: application/json
 
 {

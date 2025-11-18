@@ -10,13 +10,15 @@ import ExercicioMenu from "./components/pages/exercicio/ExercicioMenu.tsx";
 import AlunoMenu from "./components/pages/aluno/AlunoMenu.tsx";
 import ListarExercicio from "./components/pages/exercicio/ListarExercicio.tsx";
 import CadastrarExercicio from "./components/pages/exercicio/CadastrarExercicio.tsx";
+import AlterarAluno from "./components/pages/aluno/AlterarAluno.tsx";
+import AlterarExercicio from "./components/pages/exercicio/AlterarExercicio.tsx";
 
 function App(){
   return (
     <BrowserRouter>
       <div className="App">
 
-        {/* CABEÇALHO ATUALIZADO */}
+        {/* CABEÇALHO */}
         <header className="App-header-top">
           <Link to="/" className="App-logo-link">
             {/* Título mais chamativo com destaque na cor ciano */}
@@ -37,11 +39,13 @@ function App(){
                 <Route path="/pages/aluno/menu" element={<AlunoMenu />} />
                 <Route path="/pages/aluno/listarAluno" element={<div className="page-container"><ListarAluno /></div>} />
                 <Route path="/pages/aluno/cadastrarAluno" element={<div className="page-container"><CadastrarAluno /></div>} />
+                <Route path="aluno/alterar/:alunoId" element={<div className="page-container"><AlterarAluno /></div>}/>
 
                 {/* Rotas de Módulos Exercicio */}
                 <Route path="/pages/exercicio/menu" element={<ExercicioMenu/>} />
                 <Route path="/pages/exercicio/listarExercicio" element={<div className="page-container"><ListarExercicio /></div>} />
                 <Route path="/pages/exercicio/cadastrarExercicio" element={<div className="page-container"><CadastrarExercicio /></div>} />
+                <Route path="exercicio/alterar/:exercicioId" element={<div className="page-container"><AlterarExercicio /></div>}/>
 
                 
                 <Route path="/pages/treino/listar" element={

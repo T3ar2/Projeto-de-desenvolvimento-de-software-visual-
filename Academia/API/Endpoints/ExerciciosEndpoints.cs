@@ -21,18 +21,6 @@ public static class ExerciciosEndpoints
             return Results.NotFound("A lista de exercícios está vazia.");
         });
 
-        // Buscar: GET /api/exercicios/buscar/{nome}
-        app.MapGet("/api/exercicios/buscar/{nome}", (AppDataContent ctx, String nome)=>
-        {
-            Exercicio? resultado = ctx.Exercicios.FirstOrDefault(x => x.ExercicioNome == nome);
-            if (resultado is null) { return Results.NotFound("Exercicio não encontrado"); }
-            return Results.Ok(resultado);
-        });
-
-
-
-
-
         // Cadastro: POST /api/exercicios/cadastrar
         app.MapPost("/api/exercicios/cadastrar", async (Exercicio novoExercicio, AppDataContent ctx) =>
         {
@@ -76,6 +64,12 @@ public static class ExerciciosEndpoints
             
         });
 
+         app.MapGet("/api/exercicios/buscar/{id}", async (AppDataContent ctx, int id) =>
+        {
+            Exercicio? resultado = await ctx.Exercicios.FirstOrDefaultAsync(x => x.ExercicioId == id);
+            if (resultado is null) { return Results.NotFound("Exercicio não encontrado."); }
+            return Results.Ok(resultado);
+        });
 
         
     }

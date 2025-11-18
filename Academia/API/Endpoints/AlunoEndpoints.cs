@@ -22,9 +22,9 @@ public static class AlunoEndpoints
             return Results.NotFound("A lista de alunos está vazia.");
         });
 
-        app.MapGet("/api/alunos/buscar/{nome}", async (AppDataContent ctx, String nome) =>
+        app.MapGet("/api/alunos/buscar/id/{id}", async (AppDataContent ctx, int id) =>
         {
-            Aluno? resultado = await ctx.Alunos.FirstOrDefaultAsync(x => x.NomeAluno == nome);
+            Aluno? resultado = await ctx.Alunos.FirstOrDefaultAsync(x => x.AlunoId == id);
             if (resultado is null) { return Results.NotFound("Aluno não encontrado."); }
             return Results.Ok(resultado);
         });
@@ -40,7 +40,7 @@ public static class AlunoEndpoints
             if (jaExiste is true) { return Results.Conflict("Aluno já cadastrado no bando de dados."); }
             ctx.Alunos.Add(novoAluno);
             await ctx.SaveChangesAsync();
-            return Results.Ok(novoAluno + " criado com sucesso.");
+            return Results.Created($"/api/alunos/buscar/id/{novoAluno.AlunoId}", novoAluno);
         });
 
         app.MapDelete("/api/alunos/deletar/{id}", async (AppDataContent ctx, int id) =>
@@ -50,7 +50,7 @@ public static class AlunoEndpoints
             ;
             ctx.Alunos.Remove(resultado);
             await ctx.SaveChangesAsync();
-            return Results.Ok(resultado + " deletado com sucesso.");
+            return Results.Ok(resultado);
         });
 
         app.MapPatch(("/api/alunos/atualizar/{id}"), async (AppDataContent ctx, int id, Aluno alunoAlterado) =>
@@ -63,7 +63,7 @@ public static class AlunoEndpoints
             resultado.StatusMatricula = alunoAlterado.StatusMatricula;
             ctx.Alunos.Update(resultado);
             await ctx.SaveChangesAsync();
-            return Results.Ok(resultado + " alterado com sucesso.");
+            return Results.Ok(resultado);
         });
     }
 }
