@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Treino } from "../../../models/Treino";
-
+import { Treino } from "../../../models/Treino.ts";
+// dps entender o pq Treino.ts está funcional e sem ts não
 
 interface RegistroTreino {
     data: string;
@@ -19,7 +19,7 @@ function CadastrarRegistroTreino() {
     }, []);
 
     function carregarTreinos() {
-        // Ajuste a URL se o seu endpoint de listar treinos for diferente (ex: /api/treinos)
+        // não esquecer de verificar a porta
         axios.get<Treino[]>("http://localhost:5064/api/treinos/listar")
             .then((resposta) => {
                 setTreinos(resposta.data);
@@ -34,7 +34,7 @@ function CadastrarRegistroTreino() {
         
         const registro: RegistroTreino = {
             data: data,
-            // Se o treinoId for 0 (selecione...), enviamos undefined ou tratamos no backend
+            //verificar tratamento id 0
             treinoId: treinoId > 0 ? treinoId : undefined 
         };
 
