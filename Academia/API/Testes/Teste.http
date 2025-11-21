@@ -41,13 +41,13 @@ Content-Type: application/json
 }
 
 ### Associar Exercicio a um Plano de Treino Existente
-POST http://localhost:5064/api/treinos/1/associar-exercicio/1
+POST http://localhost:5064/api/treinos/1/associar-exercicio/5
 
 ### Listar Todos os Planos de Treino
 GET http://localhost:5064/api/treinos
 
 ### Listar Um Plano de Treino Específico
-GET http://localhost:5064/api/treinos/2
+GET http://localhost:5064/api/treinos/4
 
 ### Editar um Plano de Treino
 PATCH http://localhost:5064/api/treino/atualizar/1

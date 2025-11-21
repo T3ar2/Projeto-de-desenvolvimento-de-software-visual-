@@ -12,6 +12,12 @@ import ListarExercicio from "./components/pages/exercicio/ListarExercicio.tsx";
 import CadastrarExercicio from "./components/pages/exercicio/CadastrarExercicio.tsx";
 import AlterarAluno from "./components/pages/aluno/AlterarAluno.tsx";
 import AlterarExercicio from "./components/pages/exercicio/AlterarExercicio.tsx";
+import TreinoMenu from "./components/pages/treino/TreinoMenu.tsx";
+import AlterarTreino from "./components/pages/treino/AlterarTreino.tsx";
+import ListarTreino from "./components/pages/treino/ListarTreino.tsx";
+import CadastrarTreino from "./components/pages/treino/CadastrarTreino.tsx";
+import CriarRegistro from "./components/pages/registro/CriarRegistro.tsx";
+import ListarRegistro from "./components/pages/registro/ListarRegistro.tsx";
 
 function App(){
   return (
@@ -26,6 +32,8 @@ function App(){
           </Link>
           <div className="App-nav-links">
              <Link to="/" className="App-home-button">Menu Principal</Link>
+             <Link to="/pages/treino/menu" className="App-home-button">Treinos</Link>
+             <Link to="/pages/registro/cadastrar" className="App-home-button">Registrar Treino</Link>
           </div>
         </header>
 
@@ -47,19 +55,13 @@ function App(){
                 <Route path="/pages/exercicio/cadastrarExercicio" element={<div className="page-container"><CadastrarExercicio /></div>} />
                 <Route path="exercicio/alterar/:exercicioId" element={<div className="page-container"><AlterarExercicio /></div>}/>
 
-                
-                <Route path="/pages/treino/listar" element={
-                    <div className="page-container">
-                        <h2 className="content-title">Planos de Treino</h2>
-                        <p>Aqui será a página CRUD para Planos de Treino e PlanosDeTreino.</p>
-                    </div>} 
-                />
-                <Route path="/pages/registro/listar" element={
-                    <div className="page-container">
-                        <h2 className="content-title">Registro de Treinos</h2>
-                        <p>Aqui será a página CRUD para o acompanhamento e DetalheRegistro.</p>
-                    </div>} 
-                />
+                <Route path="/pages/treino/menu" element={<TreinoMenu />} />
+                <Route path="/pages/treino/listar" element={<div className="page-container"><ListarTreino /></div>} />
+                <Route path="/pages/treino/cadastrar" element={<div className="page-container"><CadastrarTreino /></div>} />
+                <Route path="/pages/treino/alterar/:id" element={<div className="page-container"><AlterarTreino /></div>} />
+
+                <Route path="/pages/registro/listar" element={<div className="page-container"><ListarRegistro /></div>} />
+                <Route path="/pages/registro/cadastrar" element={<div className="page-container"><CriarRegistro /></div>} />
             </Routes>
         </div>
       </div>

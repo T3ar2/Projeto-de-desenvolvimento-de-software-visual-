@@ -33,11 +33,18 @@ public static class TreinoEndpoints
 
         app.MapDelete("/api/treino/deletar/{id}", async (AppDataContent ctx, int id) =>
         {
-            Treino? resultado = await ctx.Treinos.FindAsync(id); 
-            if (resultado is null) { return Results.NotFound("Não é possivel deletar algo em que não está no banco de dados."); }
-            ctx.Treinos.Remove(resultado);
+            var treino = await ctx.Treinos
+                .Include(t => t.Exercicios)
+                .FirstOrDefaultAsync(t => t.TreinoId == id);
+
+            if (treino is null) 
+            { 
+                return Results.NotFound("Treino não encontrado."); 
+            }
+            
+            ctx.Treinos.Remove(treino);
             await ctx.SaveChangesAsync(); 
-            return Results.Ok(resultado + " deletado com sucesso.");
+            return Results.Ok("Treino deletado com sucesso.");
         });
 
         app.MapPatch("/api/treino/atualizar/{id}", async (AppDataContent ctx, int id, Treino novoTreino) =>
@@ -61,9 +68,9 @@ public static class TreinoEndpoints
                 ctx.Treinos.Add(treino);
                 await ctx.SaveChangesAsync();
 
-                return Results.Ok(resultado + " criado com sucesso.");
+                return Results.Created($"/api/treinos/{treino.TreinoId}", treino);
             }
-            return Results.Conflict("Exxiste o treino com o mesmo nome.");
+            return Results.Conflict("Existe o treino com o mesmo nome.");
         });
         
         app.MapPost("/api/treinos/{treinoId}/associar-exercicio/{exercicioId}", async (int treinoId, int exercicioId, AppDataContent ctx) =>
@@ -92,6 +99,19 @@ public static class TreinoEndpoints
             await ctx.SaveChangesAsync();
 
             return Results.Ok(treino);
+        });
+
+        app.MapDelete("/api/treinos/{treinoId}/remover-exercicio/{exercicioId}", async (int treinoId, int exercicioId, AppDataContent ctx) =>
+        {
+            var treino = await ctx.Treinos.Include(t => t.Exercicios).FirstOrDefaultAsync(t => t.TreinoId == treinoId);
+            if (treino is null) return Results.NotFound("Treino não encontrado.");
+
+            var exercicio = treino.Exercicios.FirstOrDefault(e => e.ExercicioId == exercicioId);
+            if (exercicio is null) return Results.NotFound("Exercício não encontrado neste treino.");
+
+            treino.Exercicios.Remove(exercicio);
+            await ctx.SaveChangesAsync();
+            return Results.Ok("Exercício removido com sucesso.");
         });
     }
 }

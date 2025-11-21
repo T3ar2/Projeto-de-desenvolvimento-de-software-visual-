@@ -19,7 +19,7 @@ const Home = () => {
             title: "Planos de Treino",
             description: "Crie, edite e personalize as rotinas semanais de treino para a sua equipe.",
             icon: "🏋️", // Ícone de Haltere/Treino
-            link: "/pages/treino/listar",
+            link: "/pages/treino/menu",
             action: "Gerenciar Treinos",
         },
         {
