@@ -15,8 +15,7 @@ function CriarRegistro() {
     useEffect(() => {
         axios.get("http://localhost:5064/api/treinos")
             .then((resposta) => {
-                // Correção para ler o array dentro de $values se existir
-                const dados = resposta.data.$values ? resposta.data.$values : resposta.data;
+                const dados = resposta.data.$values || resposta.data;
                 setTreinos(dados);
             })
             .catch((erro) => {
@@ -34,7 +33,6 @@ function CriarRegistro() {
 
         axios.post("http://localhost:5064/api/registros", registro)
             .then((resposta) => {
-                console.log(resposta.data);
                 alert("Treino registrado com sucesso!");
                 setData("");
                 setTreinoId(0);

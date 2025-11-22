@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Treino } from "../../../models/Treino"; // Importamos o modelo existente
+import { Treino } from "../../../models/Treino";
 
 interface RegistroTreino {
     registroTreinoId: number;
@@ -17,35 +17,25 @@ function ListarRegistro() {
     }, []);
 
     function carregarDados() {
-        // 1. Buscar a lista de Treinos para ter os nomes
         axios.get("http://localhost:5064/api/treinos")
             .then((resposta) => {
-                // Tratamento para ReferenceHandler.Preserve ($values)
-                const dadosTreinos = resposta.data.$values ? resposta.data.$values : resposta.data;
+                const dadosTreinos = resposta.data.$values || resposta.data;
                 setTreinos(dadosTreinos);
             })
-            .catch((erro) => {
-                console.log("Erro ao carregar treinos:", erro);
-            });
+            .catch(() => {});
 
-        // 2. Buscar a lista de Registros
         axios.get("http://localhost:5064/api/registros")
             .then((resposta) => {
-                // Tratamento para ReferenceHandler.Preserve ($values)
-                const dadosRegistros = resposta.data.$values ? resposta.data.$values : resposta.data;
+                const dadosRegistros = resposta.data.$values || resposta.data;
                 setRegistros(dadosRegistros);
             })
             .catch((erro) => {
-                // Tratamento para quando a lista vem vazia (404 no backend)
                 if (erro.response && erro.response.status === 404) {
                     setRegistros([]);
-                } else {
-                    console.log(erro);
                 }
             });
     }
 
-    // Função auxiliar para encontrar o nome do treino pelo ID
     function getNomeTreino(id?: number) {
         if (!id) return "N/A";
         const treinoEncontrado = treinos.find(t => t.treinoId === id);
