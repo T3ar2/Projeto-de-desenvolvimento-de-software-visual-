@@ -18,18 +18,18 @@ function ListarRegistro() {
 
     function carregarDados() {
         axios.get("http://localhost:5064/api/treinos")
-            .then((resposta) => {
+            .then((resposta: { data: { $values: any; }; }) => {
                 const dadosTreinos = resposta.data.$values || resposta.data;
                 setTreinos(dadosTreinos);
             })
             .catch(() => {});
 
         axios.get("http://localhost:5064/api/registros")
-            .then((resposta) => {
+            .then((resposta: { data: { $values: any; }; }) => {
                 const dadosRegistros = resposta.data.$values || resposta.data;
                 setRegistros(dadosRegistros);
             })
-            .catch((erro) => {
+            .catch((erro: { response: { status: number; }; }) => {
                 if (erro.response && erro.response.status === 404) {
                     setRegistros([]);
                 }

@@ -14,11 +14,11 @@ function CriarRegistro() {
 
     useEffect(() => {
         axios.get("http://localhost:5064/api/treinos")
-            .then((resposta) => {
+            .then((resposta: { data: { $values: any; }; }) => {
                 const dados = resposta.data.$values || resposta.data;
                 setTreinos(dados);
             })
-            .catch((erro) => {
+            .catch((erro: any) => {
                 console.log(erro);
             });
     }, []);
@@ -32,12 +32,12 @@ function CriarRegistro() {
         };
 
         axios.post("http://localhost:5064/api/registros", registro)
-            .then((resposta) => {
+            .then((resposta: any) => {
                 alert("Treino registrado com sucesso!");
                 setData("");
                 setTreinoId(0);
             })
-            .catch((erro) => {
+            .catch((erro: any) => {
                 console.log(erro);
                 alert("Erro ao registrar treino.");
             });
