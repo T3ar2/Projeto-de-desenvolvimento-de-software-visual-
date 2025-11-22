@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\erick\\OneDrive\\Área de Trabalho\\erick - pessoal\\gym\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj": {}
+    "C:\\Users\\Nicollas\\Desktop\\Up\\Projetos\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\erick\\OneDrive\\Área de Trabalho\\erick - pessoal\\gym\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj": {
+    "C:\\Users\\Nicollas\\Desktop\\Up\\Projetos\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\erick\\OneDrive\\Área de Trabalho\\erick - pessoal\\gym\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Nicollas\\Desktop\\Up\\Projetos\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\erick\\OneDrive\\Área de Trabalho\\erick - pessoal\\gym\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\erick\\OneDrive\\Área de Trabalho\\erick - pessoal\\gym\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\obj\\",
+        "projectPath": "C:\\Users\\Nicollas\\Desktop\\Up\\Projetos\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\Nicollas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nicollas\\Desktop\\Up\\Projetos\\Projeto-de-desenvolvimento-de-software-visual-\\Academia\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\erick\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Nicollas\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -37,7 +37,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -81,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.413/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

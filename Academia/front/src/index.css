@@ -114,11 +114,6 @@ code {
 .text-muted { color: var(--text-muted); }
 .fw-bold { font-weight: 700; }
 .uppercase { text-transform: uppercase; }
-
-
-  width: 8px;
-  height: 8px;
-}
 ::-webkit-scrollbar-track {
   background: var(--bg-surface);
 }
@@ -138,3 +133,4 @@ code {
 
 .fade-in {
   animation: fadeIn 0
+}

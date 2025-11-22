@@ -35,7 +35,6 @@ function AlterarExercicio(){
         e.preventDefault();
         if (exercicioId) {
             EnviarParaAPI(exercicioId);
-            
         }
     }
 
@@ -55,33 +54,25 @@ function AlterarExercicio(){
     }
 
    return (
-    // Adiciona o container da página (definido no App.tsx) se ainda não estiver lá
     <div className="page-container">
-        {/* Aplica a classe de título grande e estilizado */}
         <h1 className="content-title">Alterar Exercicio</h1> 
         
-        {/* Aplica a classe de formulário container */}
         <form onSubmit={SubmeterCadastro} className="form-aluno">
             
-            {/* Campo Nome */}
             <div className="form-group">
                 <label>Nome:</label>
                 <input value={exercicioNome} type="text" onChange={(e: any) => setExercicioNome(e.target.value)}/>
             </div>
             
-            {/* Campo Email */}
             <div className="form-group">
                 <label>Descrição:</label>
                 <input value={exercicioDescricao} type="text" onChange={(e:any) => setExercicioDescricao(e.target.value)}/>
             </div>
             
-            {/* Campo Data de Nascimento */}
             <div className="form-group">
                 <label>Equipamento: </label>
                 <input value={equipamento} type="text" onChange={(e:any) => setEquipamento(e.target.value)}/>
             </div>
-              
-            {/* Botão de Submissão */}
             <div className="form-group">
                 <button type="submit" className="btn-submit">Atualizar</button>
             </div>
