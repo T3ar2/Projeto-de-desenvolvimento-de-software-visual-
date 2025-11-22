@@ -20,6 +20,7 @@ function CadastrarRegistroTreino() {
 
     function carregarTreinos() {
         // não esquecer de verificar a porta
+        //teste commit
         axios.get<Treino[]>("http://localhost:5064/api/treinos/listar")
             .then((resposta) => {
                 setTreinos(resposta.data);
