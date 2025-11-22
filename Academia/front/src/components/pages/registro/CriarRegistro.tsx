@@ -13,9 +13,11 @@ function CriarRegistro() {
     const [treinos, setTreinos] = useState<Treino[]>([]);
 
     useEffect(() => {
-        axios.get<Treino[]>("http://localhost:5064/api/treinos")
+        axios.get("http://localhost:5064/api/treinos")
             .then((resposta) => {
-                setTreinos(resposta.data);
+                // Correção para ler o array dentro de $values se existir
+                const dados = resposta.data.$values ? resposta.data.$values : resposta.data;
+                setTreinos(dados);
             })
             .catch((erro) => {
                 console.log(erro);
@@ -82,5 +84,5 @@ function CriarRegistro() {
         </div>
     );
 }
-//teste
+
 export default CriarRegistro;

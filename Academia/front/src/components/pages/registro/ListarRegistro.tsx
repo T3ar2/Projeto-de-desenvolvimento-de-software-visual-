@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Treino } from "../../../models/Treino"; // Importamos o modelo existente
 
 interface RegistroTreino {
     registroTreinoId: number;
@@ -9,16 +10,47 @@ interface RegistroTreino {
 
 function ListarRegistro() {
     const [registros, setRegistros] = useState<RegistroTreino[]>([]);
+    const [treinos, setTreinos] = useState<Treino[]>([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5064/api/registros")
+        carregarDados();
+    }, []);
+
+    function carregarDados() {
+        // 1. Buscar a lista de Treinos para ter os nomes
+        axios.get("http://localhost:5064/api/treinos")
             .then((resposta) => {
-                setRegistros(resposta.data);
+                // Tratamento para ReferenceHandler.Preserve ($values)
+                const dadosTreinos = resposta.data.$values ? resposta.data.$values : resposta.data;
+                setTreinos(dadosTreinos);
             })
             .catch((erro) => {
-                console.log(erro);
+                console.log("Erro ao carregar treinos:", erro);
             });
-    }, []);
+
+        // 2. Buscar a lista de Registros
+        axios.get("http://localhost:5064/api/registros")
+            .then((resposta) => {
+                // Tratamento para ReferenceHandler.Preserve ($values)
+                const dadosRegistros = resposta.data.$values ? resposta.data.$values : resposta.data;
+                setRegistros(dadosRegistros);
+            })
+            .catch((erro) => {
+                // Tratamento para quando a lista vem vazia (404 no backend)
+                if (erro.response && erro.response.status === 404) {
+                    setRegistros([]);
+                } else {
+                    console.log(erro);
+                }
+            });
+    }
+
+    // Função auxiliar para encontrar o nome do treino pelo ID
+    function getNomeTreino(id?: number) {
+        if (!id) return "N/A";
+        const treinoEncontrado = treinos.find(t => t.treinoId === id);
+        return treinoEncontrado ? treinoEncontrado.nomeTreino : "Treino não encontrado";
+    }
 
     return (
         <div id="componente_listar_registros">
@@ -28,7 +60,7 @@ function ListarRegistro() {
                     <tr id="header-list">
                         <th>#</th>
                         <th>Data</th>
-                        <th>ID do Treino</th>
+                        <th>Treino Realizado</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,7 +68,7 @@ function ListarRegistro() {
                         <tr key={reg.registroTreinoId}>
                             <td>{reg.registroTreinoId}</td>
                             <td>{new Date(reg.data).toLocaleDateString()}</td>
-                            <td>{reg.treinoId ? reg.treinoId : "N/A"}</td>
+                            <td>{getNomeTreino(reg.treinoId)}</td>
                         </tr>
                     ))}
                 </tbody>
