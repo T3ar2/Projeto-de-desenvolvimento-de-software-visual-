@@ -61,8 +61,10 @@ public static class RegistroTreinoEndpoints
         app.MapGet("/api/registros", async (AppDataContent ctx) =>
         {
             var registros = await ctx.RegistrosTreino
-                                    .OrderByDescending(r => r.Data)
-                                    .ToListAsync();
+                .Include(r => r.Detalhes)           
+                    .ThenInclude(d => d.Exercicio)  
+                .OrderByDescending(r => r.Data)
+                .ToListAsync();
 
             if (registros.Any())
             {
@@ -84,6 +86,23 @@ public static class RegistroTreinoEndpoints
                 return Results.NotFound($"Registro de treino com ID {id} não encontrado.");
             }
             return Results.Ok(registro);
+        });
+
+        app.MapDelete("/api/registros/deletar/{id}", async (AppDataContent ctx, int id) =>
+        {
+            var registro = await ctx.RegistrosTreino
+                .Include(r => r.Detalhes)
+                .FirstOrDefaultAsync(r => r.RegistroTreinoId == id);
+
+            if (registro is null)
+            {
+                return Results.NotFound("Registro não encontrado.");
+            }
+
+            ctx.RegistrosTreino.Remove(registro);
+            await ctx.SaveChangesAsync();
+
+            return Results.Ok("Registro de treino excluído com sucesso.");
         });
     }
 }

@@ -44,18 +44,13 @@ function CadastrarTreino() {
         };
 
         try {
-            // 1. Codifica o nome para aceitar espaços na URL (Ex: "Treino A" vira "Treino%20A")
             const nomeCodificado = encodeURIComponent(nome);
             
             const resposta = await axios.post(`http://localhost:5064/api/treino/cadastrar/${nomeCodificado}`, novoTreino);
             
-            // 2. Pega o treino criado (Sua API retorna o objeto, então o ID já está aqui!)
             const treinoCriado = resposta.data;
             
             if (treinoCriado && treinoCriado.treinoId) {
-                // 3. Faz a associação.
-                // O ERRO ESTAVA AQUI: axios.post precisa de um objeto vazio {} como segundo argumento
-                // para confirmar que é um POST sem corpo, senão ele pode falhar silenciosamente.
                 for (const exercicioId of exerciciosSelecionados) {
                     await axios.post(
                         `http://localhost:5064/api/treinos/${treinoCriado.treinoId}/associar-exercicio/${exercicioId}`,

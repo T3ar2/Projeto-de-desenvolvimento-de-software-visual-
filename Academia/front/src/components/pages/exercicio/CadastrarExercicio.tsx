@@ -31,7 +31,7 @@ function CadastrarAluno(){
 
    return (
     <div className="page-container">
-        <h1 className="content-title">Cadastrar Novo Aluno</h1> 
+        <h1 className="content-title">Cadastrar Novo Exercício</h1> 
         <form onSubmit={SubmeterCadastro} className="form-aluno">
             
             <div className="form-group">
